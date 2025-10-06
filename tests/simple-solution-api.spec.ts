@@ -2,17 +2,28 @@ import { expect, test } from '@playwright/test'
 
 import { StatusCodes } from 'http-status-codes'
 
+const BASE_URL = 'https://backend.tallinn-learning.ee/test-orders'
+
+const num = 123
+
 test('get order with correct id should receive code 200', async ({ request }) => {
-  // Build and send a GET request to the server
-  const response = await request.get('https://backend.tallinn-learning.ee/test-orders/1')
-  // Log the response status, body and headers
-  console.log('response body:', await response.json())
-  console.log('response headers:', response.headers())
-  // Check if the response status is 200
+  const response = await request.get(`${BASE_URL}/1`) // .get(BASE_URL + '/1')
   expect(response.status()).toBe(200)
 })
 
-test('post order with correct data should receive code 201', async ({ request }) => {
+test('get order with incorrect id should receive code 400', async ({ request }) => {
+  const responseOrderId0 = await request.get(`${BASE_URL}/0`)
+  const responseOrderId11 = await request.get(`${BASE_URL}/11`)
+  const responseOrderIdNull = await request.get(`${BASE_URL}/null`)
+  const responseOrderIdTest = await request.get(`${BASE_URL}/test`)
+
+  expect(responseOrderId0.status()).toBe(StatusCodes.BAD_REQUEST)
+  expect(responseOrderId11.status()).toBe(StatusCodes.BAD_REQUEST)
+  expect(responseOrderIdNull.status()).toBe(StatusCodes.BAD_REQUEST)
+  expect(responseOrderIdTest.status()).toBe(StatusCodes.BAD_REQUEST)
+})
+
+test('post order with correct data should receive code 200', async ({ request }) => {
   // prepare request body
   const requestBody = {
     status: 'OPEN',
@@ -23,7 +34,7 @@ test('post order with correct data should receive code 201', async ({ request })
     id: 0,
   }
   // Send a POST request to the server
-  const response = await request.post('https://backend.tallinn-learning.ee/test-orders', {
+  const response = await request.post(BASE_URL, {
     data: requestBody,
   })
   // Log the response status and body

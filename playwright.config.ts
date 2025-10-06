@@ -1,4 +1,4 @@
-import { defineConfig, devices } from '@playwright/test';
+import { defineConfig } from '@playwright/test';
 
 export default defineConfig({
   testDir: './tests',
@@ -8,7 +8,7 @@ export default defineConfig({
   forbidOnly: !!process.env.CI,
   /* Retry on CI only */
   retries: process.env.CI ? 2 : 0,
-  workers: process.env.CI ? 1 : undefined,
+  workers: process.env.CI ? 6 : 1,
   reporter: 'html',
   use: {
     trace: 'on-first-retry',
@@ -16,8 +16,7 @@ export default defineConfig({
 
   projects: [
     {
-      name: 'API tests',
+      name: 'API tests'
     },
   ],
-
 });

@@ -4,8 +4,6 @@ import { StatusCodes } from 'http-status-codes'
 
 const BASE_URL = 'https://backend.tallinn-learning.ee/test-orders'
 
-const num = 123
-
 test('get order with correct id should receive code 200', async ({ request }) => {
   const response = await request.get(`${BASE_URL}/1`) // .get(BASE_URL + '/1')
   expect(response.status()).toBe(200)

@@ -40,3 +40,11 @@ test('post order with correct data should receive code 200', async ({ request })
   console.log('response body:', await response.json())
   expect(response.status()).toBe(StatusCodes.OK)
 })
+
+// if (true) {
+//
+// } else {
+//
+// }
+//
+// true ? {} : {}

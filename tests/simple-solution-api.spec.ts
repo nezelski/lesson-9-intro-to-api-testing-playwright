@@ -1,13 +1,13 @@
 import { expect, test } from '@playwright/test'
-import Ajv from "ajv";
+import Ajv from 'ajv'
 import { StatusCodes } from 'http-status-codes'
 import { OrderDTO } from './dto/OrderDTO'
 
-import { orderSchema } from "./dto/order-schema";
+import { orderSchema } from './dto/order-schema'
 
 const BASE_URL = 'https://backend.tallinn-learning.ee/test-orders'
 
-const ajv = new Ajv();
+const ajv = new Ajv()
 const validate = ajv.compile(orderSchema)
 
 test('get order with correct id should receive code 200', async ({ request }) => {
@@ -28,39 +28,39 @@ test('get order with incorrect id should receive code 400', async ({ request }) 
 })
 
 test('post order with correct data should receive code 200', async ({ request }) => {
-  const requestBody = OrderDTO.createOrderWithRandomData();
+  const requestBody = OrderDTO.createOrderWithRandomData()
   const response = await request.post(BASE_URL, {
-    data: requestBody
+    data: requestBody,
   })
 
-  const responseData: OrderDTO = await response.json();
-  const valid = validate(responseData);
-  expect.soft(valid).toBeTruthy();
+  const responseData: OrderDTO = await response.json()
+  const valid = validate(responseData)
+  expect.soft(valid).toBeTruthy()
   expect.soft(response.status()).toBe(StatusCodes.OK)
-  OrderDTO.checkServerResponse(responseData);
+  OrderDTO.checkServerResponse(responseData)
 })
 
 test('Delete order with correct id', async ({ request }) => {
-  const requestBody = OrderDTO.createOrderWithRandomData();
+  const requestBody = OrderDTO.createOrderWithRandomData()
   requestBody.id = 9
 
   const responseCreate = await request.post(BASE_URL, {
-    data: requestBody
+    data: requestBody,
   })
 
   const responseDelete = await request.delete(`${BASE_URL}/${requestBody.id}`, {
     headers: {
-      'api_key': '1234567890123456'
-    }
+      api_key: '1234567890123456',
+    },
   })
 
-  const responseCreateData: OrderDTO = await responseCreate.json();
-  const responseDeleteData: OrderDTO = await responseCreate.json();
+  const responseCreateData: OrderDTO = await responseCreate.json()
+  const responseDeleteData: OrderDTO = await responseCreate.json()
 
   expect.soft(responseCreate.status()).toBe(StatusCodes.OK)
   expect.soft(responseDelete.status()).toBe(204)
-  const validCreateJson = validate(responseCreateData);
-  const validDeleteJson = validate(responseDeleteData);
-  expect(validCreateJson).toBe(true);
-  expect(validDeleteJson).toBe(true);
+  const validCreateJson = validate(responseCreateData)
+  const validDeleteJson = validate(responseDeleteData)
+  expect(validCreateJson).toBe(true)
+  expect(validDeleteJson).toBe(true)
 })

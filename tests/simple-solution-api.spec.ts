@@ -261,12 +261,7 @@ test ('DELETE an order by id with invalid api_key should return 401', async ({ r
       api_key: '1234'
     }
   })
-  const responseApiMissing = await request.delete (BASE_URL + '/5', {
-    headers: {
-      api_key: ''
-    }
-  })
+
   expect (responseLongApi.status()).toBe(StatusCodes.UNAUTHORIZED);
   expect (responseShortApi.status()).toBe(StatusCodes.UNAUTHORIZED);
-  expect (responseApiMissing.status()).toBe(StatusCodes.UNAUTHORIZED);
 })

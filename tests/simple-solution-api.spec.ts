@@ -273,5 +273,3 @@ test('DELETE an order by id with invalid api_key should return 401', async ({ re
   expect(responseLongApi.status()).toBe(StatusCodes.UNAUTHORIZED)
   expect(responseShortApi.status()).toBe(StatusCodes.UNAUTHORIZED)
 })
-
-

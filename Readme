@@ -2,77 +2,70 @@ HOMEWORK 9:
 
 GET - Login with user name and password to get APi key
 
-|Check #| Check name                                   | Status   |  Comment                      |
----------------------------------------------------------------------------------------------------
-| 01    | receive status code 200 with correct         | Passed   |                               |
-        | username and password                        |          |                               |
-| 02    | receive status code 500 if username missing  | Passed   |                               |
-| 03    | receive status code 500 if password missing  | Passed   |                               |
-| 04    | receive status code 500 if username and      | Passed   |                               |
-|       | password are missing                         |          |                               |
-| 05    | receive status code 400 if incorrect username| Passed   |                               |
-| 06    | receive status code 400 if incorrect password| Passed   |                               |
-| 07    | receive status code 400 if incorrect username| Passed   |                               |
-|       | and password                                 |          |                               |
+## |Check #| Check name | Status | Comment |
 
-
+| 01 | receive status code 200 with correct | Passed | |
+| username and password | | |
+| 02 | receive status code 500 if username missing | Passed | |
+| 03 | receive status code 500 if password missing | Passed | |
+| 04 | receive status code 500 if username and | Passed | |
+| | password are missing | | |
+| 05 | receive status code 400 if incorrect username| Passed | |
+| 06 | receive status code 400 if incorrect password| Passed | |
+| 07 | receive status code 400 if incorrect username| Passed | |
+| | and password | | |
 
 GET - get order info and current time
 
-|Check #| Check name                                   | Status   |  Comment                      |
------------------------------------------------------------------------------------------------------
-|  01   | receive status code 200 with correct id      |  Passed  |                               |
-|       | and headers                                  |          |                               |
-|  02   | receive status code 400 if header            |  Passed  |                               |
-|       | 'x-application-name' is incorrect            |          |                               |
-|  03   | receive status code 400 if header            |  Passed  |                               |
-|       | x-session-id is incorrect                    |          |                               |
-|  04   | receive status code 400 if order id is       |  Passed  |                               |
-|       | incorrect                                    |          |                               |
-|  05   | receive status code 400 if header            |  Passed  |                               |
-|       | 'x-application-name' is missing              |          |                               |
-|  06   | receive code status 400 if header            |  Passed  |                               |
-|       | x-session-id  is missing                     |          |                               |
+## |Check #| Check name | Status | Comment |
 
-
+| 01 | receive status code 200 with correct id | Passed | |
+| | and headers | | |
+| 02 | receive status code 400 if header | Passed | |
+| | 'x-application-name' is incorrect | | |
+| 03 | receive status code 400 if header | Passed | |
+| | x-session-id is incorrect | | |
+| 04 | receive status code 400 if order id is | Passed | |
+| | incorrect | | |
+| 05 | receive status code 400 if header | Passed | |
+| | 'x-application-name' is missing | | |
+| 06 | receive code status 400 if header | Passed | |
+| | x-session-id is missing | | |
 
 PUT - test update an order by id
 
-|Check #| Check name                                   | Status   |  Comment                      |
------------------------------------------------------------------------------------------------------
-|  01   | receive status code 200 with correct header  | Passed   |                               |
-|       | api_key  and correct request body data       |          |                               |
-|  02   | receive correct response data  with correct  | Passed   |                               |
-|       | header api_key and correct request body data |          |                               |
-|  03   | receive code status 400 with incorrect       | Passed   |                               |
-|       | api_key                                      |          |                               |
+## |Check #| Check name | Status | Comment |
 
+| 01 | receive status code 200 with correct header | Passed | |
+| | api_key and correct request body data | | |
+| 02 | receive correct response data with correct | Passed | |
+| | header api_key and correct request body data | | |
+| 03 | receive code status 400 with incorrect | Passed | |
+| | api_key | | |
 
+DELETE - delete order by id
 
-DELETE  - delete order by id
+## |Check #| Check name | Status | Comment |
 
-|Check #| Check name                                   | Status   |  Comment                      |
------------------------------------------------------------------------------------------------------
-|  01   | receive status code 204 with correct order id| Passed   |                               |
-|       | and valid api_key                            |          |                               |
-|  02   | receive 401 if api_key is not valid          | Passed   |                               |
-
+| 01 | receive status code 204 with correct order id| Passed | |
+| | and valid api_key | | |
+| 02 | receive 401 if api_key is not valid | Passed | |
 
 HOMEWORK 10:
 
 Loan calculating/decision testing checklist:
 
-|Check #| Check name                                   | Status   |  Comment                      |
----------------------------------------------------------------------------------------------------
-|  01   | Receive status code 200 and valid response   | Passed   |                               |
-|       | data for positive decision with low risk     |          |                               |
-|  02   | Receive status code 200 and valid response   | Passed   |                               |
-|       | data for positive decision with medium risk  |          |                               |
-|  03   | Receive status code 200 and valid response   | Passed   |                               |
-|       | data for positive decision with high risk    |          |                               |
-|  04   | Receive status code 200 and valid response   | Passed   |                               |
-|       | data for negative decision with very high    |          |                               |
-|       | risk                                         |          |                               |
-|  05   | Receive status code 400 if income = 0        | Passed   |                               |
-|  06   | Receive status code 400 if debt < 0          | Passed   |                               |
-|  07   | Receive status code 400 if age = 16          | Failed   |                               |
+## |Check #| Check name | Status | Comment |
+
+| 01 | Receive status code 200 and valid response | Passed | |
+| | data for positive decision with low risk | | |
+| 02 | Receive status code 200 and valid response | Passed | |
+| | data for positive decision with medium risk | | |
+| 03 | Receive status code 200 and valid response | Passed | |
+| | data for positive decision with high risk | | |
+| 04 | Receive status code 200 and valid response | Passed | |
+| | data for negative decision with very high | | |
+| | risk | | |
+| 05 | Receive status code 400 if income = 0 | Passed | |
+| 06 | Receive status code 400 if debt < 0 | Passed | |
+| 07 | Receive status code 400 if age = 16 | Failed | |

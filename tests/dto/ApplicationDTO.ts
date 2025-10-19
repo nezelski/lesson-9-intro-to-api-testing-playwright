@@ -6,7 +6,14 @@ export class ApplicationDTO {
   loanAmount: number
   loanPeriod: number
 
-  constructor (income: number,debt: number,age: number,employed: boolean,loanAmount: number, loanPeriod: number) {
+  constructor(
+    income: number,
+    debt: number,
+    age: number,
+    employed: boolean,
+    loanAmount: number,
+    loanPeriod: number,
+  ) {
     this.income = income
     this.debt = debt
     this.age = age
@@ -15,5 +22,3 @@ export class ApplicationDTO {
     this.loanPeriod = loanPeriod
   }
 }
-
-

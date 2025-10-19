@@ -1,12 +1,9 @@
-import { APIResponse, expect, test } from '@playwright/test'
+import { expect, test } from '@playwright/test'
 import Ajv from 'ajv'
 import { StatusCodes } from 'http-status-codes'
 import { OrderDTO } from './dto/OrderDTO'
 
 import { orderSchema } from './dto/order-schema'
-
-
-import { request } from 'node:http'
 
 const BASE_URL = 'https://backend.tallinn-learning.ee/test-orders'
 

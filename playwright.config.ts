@@ -1,4 +1,4 @@
-import { defineConfig } from '@playwright/test';
+import { defineConfig } from '@playwright/test'
 
 export default defineConfig({
   testDir: './tests',
@@ -16,7 +16,7 @@ export default defineConfig({
 
   projects: [
     {
-      name: 'API tests'
+      name: 'API tests',
     },
   ],
-});
+})

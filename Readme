@@ -1,3 +1,5 @@
+HOMEWORK 9:
+
 GET - Login with user name and password to get APi key
 
 |Check #| Check name                                   | Status   |  Comment                      |
@@ -54,3 +56,23 @@ DELETE  - delete order by id
 |  01   | receive status code 204 with correct order id| Passed   |                               |
 |       | and valid api_key                            |          |                               |
 |  02   | receive 401 if api_key is not valid          | Passed   |                               |
+
+
+HOMEWORK 10:
+
+Loan calculating/decision testing checklist:
+
+|Check #| Check name                                   | Status   |  Comment                      |
+---------------------------------------------------------------------------------------------------
+|  01   | Receive status code 200 and valid response   | Passed   |                               |
+|       | data for positive decision with low risk     |          |                               |
+|  02   | Receive status code 200 and valid response   | Passed   |                               |
+|       | data for positive decision with medium risk  |          |                               |
+|  03   | Receive status code 200 and valid response   | Passed   |                               |
+|       | data for positive decision with high risk    |          |                               |
+|  04   | Receive status code 200 and valid response   | Passed   |                               |
+|       | data for negative decision with very high    |          |                               |
+|       | risk                                         |          |                               |
+|  05   | Receive status code 400 if income = 0        | Passed   |                               |
+|  06   | Receive status code 400 if debt < 0          | Passed   |                               |
+|  07   | Receive status code 400 if age = 16          | Failed   |                               |

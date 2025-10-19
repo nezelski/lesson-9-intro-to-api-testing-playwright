@@ -1,9 +1,12 @@
-import { expect, test } from '@playwright/test'
+import { APIResponse, expect, test } from '@playwright/test'
 import Ajv from 'ajv'
 import { StatusCodes } from 'http-status-codes'
 import { OrderDTO } from './dto/OrderDTO'
 
 import { orderSchema } from './dto/order-schema'
+
+
+import { request } from 'node:http'
 
 const BASE_URL = 'https://backend.tallinn-learning.ee/test-orders'
 
@@ -273,3 +276,5 @@ test('DELETE an order by id with invalid api_key should return 401', async ({ re
   expect(responseLongApi.status()).toBe(StatusCodes.UNAUTHORIZED)
   expect(responseShortApi.status()).toBe(StatusCodes.UNAUTHORIZED)
 })
+
+

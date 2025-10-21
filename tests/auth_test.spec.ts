@@ -38,7 +38,7 @@ test('TL-11-4 Login/student returns 401 if data is empty', async ({ request }) =
   expect(response.status()).toBe(StatusCodes.UNAUTHORIZED)
 })
 
-test('TL-11-4 Login/student returns 400 if data is missing', async ({ request }) => {
+test('TL-11-4.1 Login/student returns 400 if data is missing', async ({ request }) => {
   const response = await request.post(`${BASE_URL}/login/student`)
   expect(response.status()).toBe(StatusCodes.BAD_REQUEST)
 })

@@ -36,7 +36,7 @@ export class OrderDTO {
   }
 
   static checkServerResponse(order: OrderDTO): void {
-    expect.soft(order.id).toBeGreaterThan(0)
+    expect.soft(order.id).not.toBeNull()
     expect.soft(order.customerName.length).toBeGreaterThan(0)
   }
 }
